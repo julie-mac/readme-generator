@@ -31,7 +31,7 @@ function renderLicenseLink(license) {
     return "[Click here to view the Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)"
   }
   else if (license === "Mozilla Public License 2.0") {
-    return "[[Click here to view the Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/)"
+    return "[Click here to view the Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/)"
   }
   else {
     return "";
