@@ -5,9 +5,7 @@
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
-  - [Contribution Guidelines](#contribution)
-  - [Tests](#tests)
-  - [Questions](#questions)
+  - [Credits](#credits)
   
   
   ## Description
@@ -30,10 +28,8 @@ https://github.com/julie-mac/readme-generator/assets/123594716/a5d08fa5-4eca-44d
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [Click here to view the MIT license](https://opensource.org/license/mit/)
   
-  ## Contribution Guidelines
+  ## Credits
 
-  N/A
- 
-  ## Tests
+  [julie-mac](github.com/julie-mac)
 
-  Just node it!
+  [coding-boot-camp](github.com/coding-boot-camp) 
