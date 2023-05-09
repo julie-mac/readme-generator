@@ -2,6 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generate = require('./utils/generateMarkdown.js');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -22,13 +23,13 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'usage info',
+        name: 'usage',
         message: 'Please provide usage information for your application.'
     },
     {
         type: 'input',
-        name: 'credits',
-        message: 'Please provide any and all contributors that worked on this project.'
+        name: 'contribution',
+        message: 'Please provide contribution guidelines for the application.'
     },
     {
         type: 'input',
@@ -36,21 +37,13 @@ const questions = [
         message: 'Please describe how to test the application.',
     },
     {
-        type: 'checkbox',
+        type: 'list',
         name: 'license',
         message: 'What is the application licensed under? Please select one of the following options:',
         choices: [
             'MIT License', 
             'GNU General Public License v3.0', 
             'Apache License 2.0', 
-            'BSD 2-Clause "Simplified" License',
-            'BSD 3-Clause "New" or "Revised" License',
-            'Boost Software License 1.0',
-            'Creative Commons Zero v1.0 Universal',
-            'Eclipse Public License 2.0',
-            'GNU Affero General Public License v3.0',
-            'GNU General Public License v2.0',
-            'GNU General Public License v2.1',
             'Mozilla Public License 2.0',
             'No License'
         ],
@@ -69,39 +62,17 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    return `# ${repoName}
-
-    ## Table of Contents
-    
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [Citations](#citations)
-    - [License](#license)
-    
-    ## Description
-
-    ${description}
-    
-    ## Installation
-    
-    ## Usage Information
-    
-    ${usage}
-    
-    ## Contribution Guidelines
-
-    ## Credits
-
-    ${credits}
-    
-    ## License
-    
-    `
+    return fs.writeFile(fileName, data, function (err) {
+        err ? console.log(err) : console.log('Your README has been created.')
+})
 }
 
 // TODO: Create a function to initialize app
 function init() {
-
+    inquirer.prompt(questions)
+    .then((data) => {
+        writeToFile('README.md', generateMarkdown(data))
+    })
 }
 
 // Function call to initialize app
